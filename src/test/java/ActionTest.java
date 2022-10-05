@@ -48,6 +48,11 @@ class ActionTest {
         assertEquals("Short Pass", action.getGameLog().get(1));
     }
     @Test
+    void GivenTeams_ALongPassActionIsCompleted_AndSavedInTheGameLog(){
+        action.addToGameLog();
+        assertEquals("Long Pass", action.getGameLog().get(1));
+    }
+    @Test
     void GivenTeams_PlayerAppearsInGameLog(){
         action.addToGameLog();
         assertEquals("Thiago Silva",action.getGameLog().get(0));

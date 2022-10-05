@@ -3,6 +3,7 @@ package example;
 import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.List;
+import java.util.Random;
 
 public class Action {
     private final String homeTeam;
@@ -21,10 +22,17 @@ public class Action {
         return awayTeam;
     }
 
+    public static String getRandomEvent(String[] array) {
+        int rnd = new Random().nextInt(array.length);
+        return array[rnd];
+    }
+
     public String gameEvent() {
-        return "Short Pass";
+        String[] event = new String[]{"Short Pass","Long Pass","Dribble"};
+        return getRandomEvent(event);
     }
     public List<Object> getGameLog() {
+        System.out.println(gameLog);
         return gameLog;
     }
     public void addToGameLog() {
