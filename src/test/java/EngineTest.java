@@ -1,4 +1,4 @@
-import example.Action;
+import example.Engine;
 import example.Team;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,10 +8,10 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class ActionTest {
+class EngineTest {
     Team chelsea;
     Team arsenal;
-    Action action;
+    Engine engine;
 
 //    @Mock
 //    RandomGenerator randomGenerator;
@@ -35,17 +35,17 @@ class ActionTest {
         arsenalPlayers.add(player3);
         arsenalPlayers.add(player4);
         arsenal.createPlayers(arsenalPlayers);
-        action = new Action(chelsea,arsenal);
+        engine = new Engine(chelsea,arsenal);
     }
 
     @Test
     void whenAGameIsCreated_KickOffIsRecordedInTheGameLog(){
-        assertEquals("Kick Off",action.getGameLog().get(0));
+        assertEquals("Kick Off", engine.getGameLog().get(0));
     }
     @Test
     void GivenTwoTeams_GetHomeTeamAndAwayTeam(){
-        assertEquals("Chelsea",action.getHomeTeam());
-        assertEquals("Arsenal",action.getAwayTeam());
+        assertEquals("Chelsea", engine.getHomeTeam());
+        assertEquals("Arsenal", engine.getAwayTeam());
     }
 //    @Test
 //    void GivenTwoTeams_GetPlayers(){
@@ -53,8 +53,8 @@ class ActionTest {
 //    }
     @Test
     void GivenTeams_AnActionIsCompleted_AndSavedInTheGameLog(){
-        action.addToGameLog();
-        assertEquals(4, action.getGameLog().size());
+        engine.addToGameLog();
+        assertEquals(8, engine.getGameLog().size());
     }
 //    @Test
 //    void GivenTeams_ALongPassActionIsCompleted_AndSavedInTheGameLog(){
@@ -63,14 +63,14 @@ class ActionTest {
 //    }
     @Test
     void GivenTeams_PlayerAppearsInGameLog(){
-        action.addToGameLog();
-        assertEquals("Thiago Silva",action.getGameLog().get(2));
+        engine.addToGameLog();
+        assertEquals("Thiago Silva", engine.getGameLog().get(2));
     }
 
     @Test
     void GivenTeams_AssignATeamToKickOff(){
-        action.addToGameLog();
-        assertEquals("Chelsea",action.getGameLog().get(1));
+        engine.addToGameLog();
+        assertEquals("Chelsea", engine.getGameLog().get(1));
     }
 //    @Test
 //    void GivenAGameKickOff_WhenTeamIsSelected_ThenThePlayerShouldBeFromThatTeam(){
