@@ -24,16 +24,20 @@ class EngineTest {
         arsenal = new Team("ARS","Arsenal");
         String[] player = new String[]{"Thiago Silva","Defender","Chelsea"};
         String[] player2 = new String[]{"Reece James","Defender","Chelsea"};
+        String[] player3 = new String[]{"Mateo Kovavic ","Midfielder","Chelsea"};
         List<String[]> players = new ArrayList<>();
         players.add(player);
         players.add(player2);
+        players.add(player3);
         chelsea.createPlayers(players);
 
-        String[] player3 = new String[]{"Ben White","Defender","Arsenal"};
-        String[] player4 = new String[]{"Rob Holding","Defender","Arsenal"};
+        String[] player4 = new String[]{"Ben White","Defender","Arsenal"};
+        String[] player5 = new String[]{"Rob Holding","Defender","Arsenal"};
+        String[] player6 = new String[]{"Thomas Partey","Midfielder","Arsenal"};
         List<String[]> arsenalPlayers = new ArrayList<>();
-        arsenalPlayers.add(player3);
         arsenalPlayers.add(player4);
+        arsenalPlayers.add(player5);
+        arsenalPlayers.add(player6);
         arsenal.createPlayers(arsenalPlayers);
         engine = new Engine(chelsea,arsenal);
     }

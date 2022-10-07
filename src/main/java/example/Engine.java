@@ -8,6 +8,8 @@ import java.util.Objects;
 public class Engine {
     private final String homeTeam;
     private final String awayTeam;
+    private String kickOffTeam;
+    private String attackingTeam;
     private List<Object> gameLog = new ArrayList<>();
     private final List<Player> homePlayers;
     private final List<Player> awayPlayers;
@@ -25,9 +27,9 @@ public class Engine {
         return awayTeam;
     }
 
-    public String teamToKickOff(){
+    public void teamToKickOff(){
         String[] teams = new String[]{homeTeam,awayTeam};
-        return RandomGenerator.getRandomEvent(teams);
+        kickOffTeam = RandomGenerator.getRandomEvent(teams);
     }
 
     public String teamEvent() {
@@ -37,8 +39,8 @@ public class Engine {
                 "Long Pass",
                 "Dribble",
                 "Backwards Pass",
-                "Cross",
-                "Corner"
+//                "Cross",
+//                "Corner"
         };
         return RandomGenerator.getRandomEvent(teamPlay);
     }
@@ -61,7 +63,7 @@ public class Engine {
         String[] defencePlay = new String[]{
                 "Interception",
                 "Tackle",
-                "Foul"
+//                "Foul"
         };
         return RandomGenerator.getRandomEvent(defencePlay);
     }
@@ -95,44 +97,78 @@ public class Engine {
         System.out.println(gameLog);
         return gameLog;
     }
-    public void addToGameLog() {
-        gameLog.add(teamToKickOff());
-        gameLog.add(getPlayer());
+
+    public void gameStart(){
+        teamToKickOff();
+        gameLog.add(kickOffTeam);
+        gameLog.add(playerReceive(kickOffTeam).playerDetails());
         gameLog.add("Pass");
-        gameLog.add(getPlayer());
+        gameLog.add(playerReceive(kickOffTeam).playerDetails());
+        attackingTeam = kickOffTeam;
+    }
+    public void addToGameLog() {
+        gameStart();
         constructPlay();
     }
+
+//    public boolean playerReceiveSuccess(){
+//        if(teamToKickOff()==homeTeam){
+//            playerReceive(homeTeam)
+//        }
+//    }
 
     public void constructPlay(){
         for (int i = 1; i < 5; i++) {
             teamEventPlay();
         }
     }
-    public String getPlayer(){
-        if (gameLog.get(1) == homeTeam){
-            return homePlayers.get(0).playerDetails();
-        } else {
-            return awayPlayers.get(0).playerDetails();
-        }
-    }
 
     public void teamEventPlay(){
         String teamPlay = teamEvent();
         if (Objects.equals(teamPlay, "Pass") || "Long Pass".equals(teamPlay) || "Backwards Pass".equals(teamPlay) ){
-            gameLog.add(teamEvent());
-            gameLog.add(playerReceive());
+            gameLog.add(teamPlay);
+            if (dribbleEvent()){
+                gameLog.add(teamEvent());
+            }
+            gameLog.add(playerReceive(attackingTeam).playerDetails());
         } else {
             gameLog.add(defendInPlayEvent());
-            gameLog.add(playerDefend());
+            attackTeamSwitch();
+            gameLog.add(playerReceive(attackingTeam).playerDetails());
         }
     }
 
-    public String playerReceive(){
-        return RandomGenerator.getRandomPlayer(homePlayers);
+    public void attackTeamSwitch(){
+        Player player;
+        if (Objects.equals(attackingTeam, homeTeam)){
+            player = RandomGenerator.getRandomPlayer(awayPlayers);
+        } else {
+            player = RandomGenerator.getRandomPlayer(homePlayers);
+        }
+        attackingTeam = player.getClub();
+    }
+
+    public Player playerReceive(String team){
+        if (Objects.equals(team, homeTeam)){
+            return RandomGenerator.getRandomPlayer(homePlayers);
+        } else {
+            return RandomGenerator.getRandomPlayer(awayPlayers);
+        }
     }
 
     public String playerDefend(){
-        return RandomGenerator.getRandomPlayer(awayPlayers);
+        return RandomGenerator.getRandomPlayerName(awayPlayers);
     }
+
+    public boolean dribbleEvent(){
+        return gameLog.get(gameLog.size()-1)=="Dribble";
+    }
+
+//    public String playerPass(){
+//        Object previousPlayer = gameLog.get(gameLog.size()-1);
+//        if (previousPlayer.getClass() == Player){
+//
+//        }
+//    }
 
 }

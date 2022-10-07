@@ -14,8 +14,12 @@ public class RandomGenerator {
         int rnd = random.nextInt(array.length);
         return array[rnd];
     }
+    public static Player getRandomPlayer(List<Player> players){
+        createRandom();
+        return players.get(random.nextInt(players.size()));
+    }
 
-    public static String getRandomPlayer(List<Player> players){
+    public static String getRandomPlayerName(List<Player> players){
         createRandom();
         Player player = players.get(random.nextInt(players.size()));
         return player.playerDetails();

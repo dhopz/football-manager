@@ -1,6 +1,4 @@
 
-Q
-!src/main/java/example/Player.java,e\a\ea9cad7127ce8f965f2cec0c41abcb8ba0aeb919
 L
 src/test/java/GamesTest.java,5\9\5941536c69b887d22d957ab8721173ba48847e22
 M
