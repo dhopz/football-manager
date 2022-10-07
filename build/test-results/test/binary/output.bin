@@ -1,4 +1,4 @@
-S[Kick Off, Chelsea, Thiago Silva, Pass, Tackle, Foul, Save, Goal from Inside Box]
-^[Kick Off, Arsenal, Ben White, Corner, Tackle, Interception, Clearance, Goal from Free kick]
+9[Kick Off, Arsenal, Ben White, Through Ball, Ben White]
+&[Kick Off, Arsenal, Ben White, Foul]
 [Kick Off]
-S[Kick Off, Arsenal, Ben White, Corner, Opponent Offside, Foul, Tackle, On Target]
++[Kick Off, Chelsea, Thiago Silva, Tackle]

@@ -2,6 +2,7 @@ package example;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 public class Engine {
@@ -34,6 +35,7 @@ public class Engine {
                 "Pass",
                 "Through Ball",
                 "Long Pass",
+                "Dribble",
                 "Backwards Pass",
                 "Cross",
                 "Corner"
@@ -96,17 +98,24 @@ public class Engine {
     public void addToGameLog() {
         gameLog.add(teamToKickOff());
         gameLog.add(getPlayer());
-        gameLog.add(teamEvent());
-        gameLog.add(defenceEvent());
-        gameLog.add(defendInPlayEvent());
-        gameLog.add(keeperEvent());
-        gameLog.add(attackEvent());
+        teamEventPlay();
     }
     public String getPlayer(){
         if (gameLog.get(1) == homeTeam){
             return homePlayers.get(0).playerDetails();
         } else {
             return awayPlayers.get(0).playerDetails();
+        }
+    }
+
+    public void teamEventPlay(){
+        String teamPlay = teamEvent();
+        if (Objects.equals(teamPlay, "Pass") || "Long Pass".equals(teamPlay) || "Backwards Pass".equals(teamPlay) ){
+            gameLog.add(teamEvent());
+            gameLog.add(getPlayer());
+        } else {
+            gameLog.add(defendInPlayEvent());
+            defendInPlayEvent();
         }
     }
 

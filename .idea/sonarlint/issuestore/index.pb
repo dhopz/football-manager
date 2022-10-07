@@ -1,6 +1,4 @@
 
-N
-src/main/java/example/App.java,4\b\4b4279dd8f0e1911f5b89cf8746f6d0d30a62fd2
 Q
 !src/main/java/example/Player.java,e\a\ea9cad7127ce8f965f2cec0c41abcb8ba0aeb919
 L
