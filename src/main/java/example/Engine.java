@@ -11,6 +11,7 @@ public class Engine {
     private String kickOffTeam;
     private String attackingTeam;
     private List<Object> gameLog = new ArrayList<>();
+    private List<Player> playerLog = new ArrayList<>();
     private final List<Player> homePlayers;
     private final List<Player> awayPlayers;
     public Engine(Team homeTeam, Team awayTeam) {
@@ -95,15 +96,24 @@ public class Engine {
     }
     public List<Object> getGameLog() {
         System.out.println(gameLog);
+        List<String> players = new ArrayList<>();
+        for (Player player:playerLog){
+            players.add(player.playerDetails());
+        }
+        System.out.println(players);
         return gameLog;
     }
 
     public void gameStart(){
         teamToKickOff();
         gameLog.add(kickOffTeam);
-        gameLog.add(playerReceive(kickOffTeam).playerDetails());
+        Player player = playerSelect(kickOffTeam);
+        gameLog.add(player.playerDetails());
+        playerLog.add(player);
         gameLog.add("Pass");
-        gameLog.add(playerReceive(kickOffTeam).playerDetails());
+
+        gameLog.add(player.playerDetails());
+        playerLog.add(player);
         attackingTeam = kickOffTeam;
     }
     public void addToGameLog() {
@@ -123,18 +133,38 @@ public class Engine {
         }
     }
 
+    public void logPlayEvent(){
+        checkPlayer();
+        Player player = playerSelect(attackingTeam);
+        gameLog.add(player.playerDetails());
+        playerLog.add(player);
+    }
+
+    public Player checkPlayer(){
+        Player player = playerSelect(attackingTeam);
+        if (Objects.equals(player.playerDetails(), playerLog.get(playerLog.size() - 1).playerDetails())){
+            return playerSelect(attackingTeam);
+        } else {
+            return player;
+        }
+    }
+
     public void teamEventPlay(){
         String teamPlay = teamEvent();
-        if (Objects.equals(teamPlay, "Pass") || "Long Pass".equals(teamPlay) || "Backwards Pass".equals(teamPlay) ){
+        if (Objects.equals(teamPlay, "Pass") ||
+                "Long Pass".equals(teamPlay) ||
+                "Backwards Pass".equals(teamPlay) ||
+                "Dribble".equals(teamPlay)){
             gameLog.add(teamPlay);
             if (dribbleEvent()){
                 gameLog.add(teamEvent());
             }
-            gameLog.add(playerReceive(attackingTeam).playerDetails());
+            logPlayEvent();
+
         } else {
             gameLog.add(defendInPlayEvent());
             attackTeamSwitch();
-            gameLog.add(playerReceive(attackingTeam).playerDetails());
+            logPlayEvent();
         }
     }
 
@@ -148,16 +178,12 @@ public class Engine {
         attackingTeam = player.getClub();
     }
 
-    public Player playerReceive(String team){
+    public Player playerSelect(String team){
         if (Objects.equals(team, homeTeam)){
             return RandomGenerator.getRandomPlayer(homePlayers);
         } else {
             return RandomGenerator.getRandomPlayer(awayPlayers);
         }
-    }
-
-    public String playerDefend(){
-        return RandomGenerator.getRandomPlayerName(awayPlayers);
     }
 
     public boolean dribbleEvent(){
