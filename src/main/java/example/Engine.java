@@ -98,7 +98,15 @@ public class Engine {
     public void addToGameLog() {
         gameLog.add(teamToKickOff());
         gameLog.add(getPlayer());
-        teamEventPlay();
+        gameLog.add("Pass");
+        gameLog.add(getPlayer());
+        constructPlay();
+    }
+
+    public void constructPlay(){
+        for (int i = 1; i < 5; i++) {
+            teamEventPlay();
+        }
     }
     public String getPlayer(){
         if (gameLog.get(1) == homeTeam){
@@ -112,11 +120,19 @@ public class Engine {
         String teamPlay = teamEvent();
         if (Objects.equals(teamPlay, "Pass") || "Long Pass".equals(teamPlay) || "Backwards Pass".equals(teamPlay) ){
             gameLog.add(teamEvent());
-            gameLog.add(getPlayer());
+            gameLog.add(playerReceive());
         } else {
             gameLog.add(defendInPlayEvent());
-            defendInPlayEvent();
+            gameLog.add(playerDefend());
         }
+    }
+
+    public String playerReceive(){
+        return RandomGenerator.getRandomPlayer(homePlayers);
+    }
+
+    public String playerDefend(){
+        return RandomGenerator.getRandomPlayer(awayPlayers);
     }
 
 }
