@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="EngineTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2022-10-10T10:49:57" hostname="LUK-5CG01160SZ" time="0.02">
+<testsuite name="EngineTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2022-10-10T13:19:27" hostname="LUK-5CG01160SZ" time="0.022">
   <properties/>
-  <testcase name="GivenTeams_AnActionIsCompleted_AndSavedInTheGameLog()" classname="EngineTest" time="0.02">
-    <failure message="org.opentest4j.AssertionFailedError: expected: &lt;8&gt; but was: &lt;26&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;8&gt; but was: &lt;26&gt;
+  <testcase name="GivenTeams_AnActionIsCompleted_AndSavedInTheGameLog()" classname="EngineTest" time="0.022">
+    <failure message="org.opentest4j.AssertionFailedError: expected: &lt;8&gt; but was: &lt;58&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;8&gt; but was: &lt;58&gt;
 	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
 	at app//org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
 	at app//org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
 	at app//org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
 	at app//org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:527)
-	at app//EngineTest.GivenTeams_AnActionIsCompleted_AndSavedInTheGameLog(EngineTest.java:61)
+	at app//EngineTest.GivenTeams_AnActionIsCompleted_AndSavedInTheGameLog(EngineTest.java:65)
 	at java.base@11.0.12/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base@11.0.12/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base@11.0.12/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -95,8 +95,8 @@
 	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
 </failure>
   </testcase>
-  <system-out><![CDATA[[Kick Off, Chelsea, Thiago Silva, Pass, Mateo Kovavic, Long Pass, Reece James, Backwards Pass, Mateo Kovavic, Dribble, Dribble, Thiago Silva, Long Pass, Mateo Kovavic, Dribble, Dribble, Thiago Silva, Dribble, Through Ball, Reece James, Long Pass, Mateo Kovavic, Pass, Thiago Silva, Long Pass, Mateo Kovavic]
-[Thiago Silva, Mateo Kovavic, Reece James, Mateo Kovavic, Thiago Silva, Mateo Kovavic, Thiago Silva, Reece James, Mateo Kovavic, Thiago Silva, Mateo Kovavic]
+  <system-out><![CDATA[[Kick Off, Chelsea, Mateo Kovavic, Pass, Thiago Silva, Dribble, Dribble, Through Ball, Kai Havertz, Hit Woodwork, Thiago Silva, Dribble, Backwards Pass, Mateo Kovavic, Long Pass, Reece James, Tackle, Gabriel Jesus, Off Target, Thomas Partey, Pass, Rob Holding, Interception, Thiago Silva, Pass, Mateo Kovavic, Dribble, Backwards Pass, Reece James, Interception, Gabriel Jesus, Goal from Outside Box, Mateo Kovavic, Long Pass, Reece James, Dribble, Backwards Pass, Thiago Silva, Pass, Kai Havertz, Off Target, Reece James, Interception, Thomas Partey, Pass, Ben White, Backwards Pass, Rob Holding, Pass, Gabriel Jesus, On Target, Thomas Partey, Pass, Rob Holding, Interception, Reece James, Tackle, Thomas Partey]
+[Mateo Kovavic, Thiago Silva, Kai Havertz, Thiago Silva, Mateo Kovavic, Reece James, Gabriel Jesus, Thomas Partey, Rob Holding, Thiago Silva, Mateo Kovavic, Reece James, Gabriel Jesus, Mateo Kovavic, Reece James, Thiago Silva, Kai Havertz, Reece James, Thomas Partey, Ben White, Rob Holding, Gabriel Jesus, Thomas Partey, Rob Holding, Reece James, Thomas Partey]
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -78,17 +78,23 @@ public class Engine {
         return RandomGenerator.getRandomEvent(keeperPlay);
     }
 
-    public String attackEvent(){
-        String[] attackPlay = new String[]{
-                "Shot",
-                "On Target",
-                "Hit Woodwork",
+    public String goalEvent(){
+        String[] goalPlay = new String[]{
                 "Goal from Header",
                 "Goal from Penalty",
                 "Goal from Free kick",
                 "Goal from Inside Box",
-                "Goal from Outside Box",
-                "Goals from Counter Attack",
+                "Goal from Outside Box"
+        };
+        return RandomGenerator.getRandomEvent(goalPlay);
+    }
+
+    public String attackEvent(){
+        String[] attackPlay = new String[]{
+                "Shot",
+                "On Target",
+                "Off Target",
+                "Hit Woodwork",
                 "Offside"
         };
         return RandomGenerator.getRandomEvent(attackPlay);
@@ -123,38 +129,49 @@ public class Engine {
         constructPlay();
     }
 
-//    public boolean playerReceiveSuccess(){
-//        if(teamToKickOff()==homeTeam){
-//            playerReceive(homeTeam)
-//        }
-//    }
 
     public void constructPlay(){
-        for (int i = 1; i < 10; i++) {
+        for (int i = 1; i < 20; i++) {
             teamEventPlay();
+            if (checkForwardPlayer()){
+                teamAttackPlay();
+            }
         }
     }
 
     public void logPlayEvent(){
-//        checkPlayer();
-//        Player player = playerSelect(attackingTeam);
         Player player = checkPlayer();
-
         gameLog.add(player.playerDetails());
         playerLog.add(player);
     }
 
     public Player checkPlayer() {
-//        Player player = playerSelect(attackingTeam);
         Player lastPlayer = playerLog.get(playerLog.size() - 1);
-
         Player player;
         do {
             player = playerSelect(attackingTeam);
-
-        } while (Objects.equals(lastPlayer.playerDetails(),player.playerDetails()));
-
+        } while (Objects.equals(lastPlayer.playerDetails(), player.playerDetails()));
         return player;
+    }
+
+    public void teamAttackPlay(){
+        String attackPlay = attackEvent();
+        if (Objects.equals(attackPlay, "On Target") ||
+                "Off Target".equals(attackPlay) ||
+                "Hit Woodwork".equals(attackPlay) ||
+                "Offside".equals(attackPlay)){
+            gameLog.add(attackPlay);
+            logPlayEvent();
+        } else if (Objects.equals(attackPlay, "Shot")){
+            String goalEvent = goalEvent();
+            gameLog.add(goalEvent);
+            attackTeamSwitch();
+            logPlayEvent();
+        } else {
+            gameLog.add(defendInPlayEvent());
+            attackTeamSwitch();
+            logPlayEvent();
+        }
     }
 
     public void teamEventPlay(){
@@ -164,7 +181,7 @@ public class Engine {
                 "Backwards Pass".equals(teamPlay) ||
                 "Dribble".equals(teamPlay)){
             gameLog.add(teamPlay);
-            if (dribbleEvent()){
+            while (dribbleEvent()){
                 gameLog.add(teamEvent());
             }
             logPlayEvent();
@@ -198,11 +215,8 @@ public class Engine {
         return gameLog.get(gameLog.size()-1)=="Dribble";
     }
 
-//    public String playerPass(){
-//        Object previousPlayer = gameLog.get(gameLog.size()-1);
-//        if (previousPlayer.getClass() == Player){
-//
-//        }
-//    }
+    public boolean checkForwardPlayer(){
+        return Objects.equals(playerLog.get(playerLog.size() - 1).getPosition(), "Forward");
+    }
 
 }
