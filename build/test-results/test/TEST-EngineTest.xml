@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="EngineTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2022-10-07T16:04:26" hostname="LUK-5CG01160SZ" time="0.02">
+<testsuite name="EngineTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2022-10-10T10:49:57" hostname="LUK-5CG01160SZ" time="0.02">
   <properties/>
   <testcase name="GivenTeams_AnActionIsCompleted_AndSavedInTheGameLog()" classname="EngineTest" time="0.02">
-    <failure message="org.opentest4j.AssertionFailedError: expected: &lt;8&gt; but was: &lt;14&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;8&gt; but was: &lt;14&gt;
+    <failure message="org.opentest4j.AssertionFailedError: expected: &lt;8&gt; but was: &lt;26&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;8&gt; but was: &lt;26&gt;
 	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
 	at app//org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
@@ -95,8 +95,8 @@
 	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
 </failure>
   </testcase>
-  <system-out><![CDATA[[Kick Off, Chelsea, Thiago Silva, Pass, Thiago Silva, Backwards Pass, Mateo Kovavic, Backwards Pass, Thiago Silva, Interception, Ben White, Dribble, Long Pass, Ben White]
-[Thiago Silva, Thiago Silva, Mateo Kovavic, Thiago Silva, Ben White, Ben White]
+  <system-out><![CDATA[[Kick Off, Chelsea, Thiago Silva, Pass, Mateo Kovavic, Long Pass, Reece James, Backwards Pass, Mateo Kovavic, Dribble, Dribble, Thiago Silva, Long Pass, Mateo Kovavic, Dribble, Dribble, Thiago Silva, Dribble, Through Ball, Reece James, Long Pass, Mateo Kovavic, Pass, Thiago Silva, Long Pass, Mateo Kovavic]
+[Thiago Silva, Mateo Kovavic, Reece James, Mateo Kovavic, Thiago Silva, Mateo Kovavic, Thiago Silva, Reece James, Mateo Kovavic, Thiago Silva, Mateo Kovavic]
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

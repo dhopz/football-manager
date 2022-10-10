@@ -107,14 +107,16 @@ public class Engine {
     public void gameStart(){
         teamToKickOff();
         gameLog.add(kickOffTeam);
+        attackingTeam = kickOffTeam;
         Player player = playerSelect(kickOffTeam);
         gameLog.add(player.playerDetails());
         playerLog.add(player);
         gameLog.add("Pass");
 
-        gameLog.add(player.playerDetails());
-        playerLog.add(player);
-        attackingTeam = kickOffTeam;
+        Player player1 = checkPlayer();
+
+        gameLog.add(player1.playerDetails());
+        playerLog.add(player1);
     }
     public void addToGameLog() {
         gameStart();
@@ -128,25 +130,31 @@ public class Engine {
 //    }
 
     public void constructPlay(){
-        for (int i = 1; i < 5; i++) {
+        for (int i = 1; i < 10; i++) {
             teamEventPlay();
         }
     }
 
     public void logPlayEvent(){
-        checkPlayer();
-        Player player = playerSelect(attackingTeam);
+//        checkPlayer();
+//        Player player = playerSelect(attackingTeam);
+        Player player = checkPlayer();
+
         gameLog.add(player.playerDetails());
         playerLog.add(player);
     }
 
-    public Player checkPlayer(){
-        Player player = playerSelect(attackingTeam);
-        if (Objects.equals(player.playerDetails(), playerLog.get(playerLog.size() - 1).playerDetails())){
-            return playerSelect(attackingTeam);
-        } else {
-            return player;
-        }
+    public Player checkPlayer() {
+//        Player player = playerSelect(attackingTeam);
+        Player lastPlayer = playerLog.get(playerLog.size() - 1);
+
+        Player player;
+        do {
+            player = playerSelect(attackingTeam);
+
+        } while (Objects.equals(lastPlayer.playerDetails(),player.playerDetails()));
+
+        return player;
     }
 
     public void teamEventPlay(){
