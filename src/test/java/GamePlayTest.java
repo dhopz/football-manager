@@ -1,4 +1,5 @@
 import example.GameGenerator.Engine;
+import example.GameGenerator.GamePlay;
 import example.Team;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,13 +9,11 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class EngineTest {
+class GamePlayTest {
     Team chelsea;
     Team arsenal;
     Engine engine;
-
-//    @Mock
-//    RandomGenerator randomGenerator;
+    GamePlay gamePlay;
 
 
     @BeforeEach
@@ -43,47 +42,13 @@ class EngineTest {
         arsenalPlayers.add(player6);
         arsenalPlayers.add(player8);
         arsenal.createPlayers(arsenalPlayers);
-        engine = new Engine(chelsea,arsenal);
+
+        gamePlay = new GamePlay(chelsea,arsenal);
     }
 
-//    @Test
-//    void whenAGameIsCreated_KickOffIsRecordedInTheGameLog(){
-//        assertEquals("Kick Off", engine.getGameLog().get(0));
-//    }
     @Test
-    void GivenTwoTeams_GetHomeTeamAndAwayTeam(){
-        assertEquals("Chelsea", engine.getHomeTeam());
-        assertEquals("Arsenal", engine.getAwayTeam());
+    void GivenTeams_AGameIsGenerated_AndSavedInTheGameLog(){
+        gamePlay.constructPlay();
+        assertEquals(8, gamePlay.getGameLog().size());
     }
-//    @Test
-//    void GivenTwoTeams_GetPlayers(){
-//        assertEquals("Short Pass",action.gameEvent());
-//    }
-//    @Test
-//    void GivenTeams_AnActionIsCompleted_AndSavedInTheGameLog(){
-//        engine.addToGameLog();
-//        assertEquals(8, engine.getGameLog().size());
-//    }
-//    @Test
-//    void GivenTeams_ALongPassActionIsCompleted_AndSavedInTheGameLog(){
-//        action.addToGameLog();
-//        assertEquals("Short Pass", action.getGameLog().get(1));
-//    }
-//    @Test
-//    void GivenTeams_PlayerAppearsInGameLog(){
-//        engine.addToGameLog();
-//        assertEquals("Thiago Silva", engine.getGameLog().get(2));
-//    }
-
-//    @Test
-//    void GivenTeams_AssignATeamToKickOff(){
-//        engine.addToGameLog();
-//        assertEquals("Chelsea", engine.getGameLog().get(1));
-//    }
-//    @Test
-//    void GivenAGameKickOff_WhenTeamIsSelected_ThenThePlayerShouldBeFromThatTeam(){
-//        action.addToGameLog();
-//        assertEquals();
-//
-//    }
 }
