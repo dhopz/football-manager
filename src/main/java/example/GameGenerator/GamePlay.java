@@ -48,6 +48,7 @@ public class GamePlay {
         teamToKickOff();
         gameLog.logEvent(kickOffTeam);
         attackingTeam = kickOffTeam;
+        engine.setAttackingTeam(kickOffTeam);
         Player player = engine.playerSelect(kickOffTeam);
         gameLog.logPlayEvent(player);
         gameLog.logEvent("Pass");

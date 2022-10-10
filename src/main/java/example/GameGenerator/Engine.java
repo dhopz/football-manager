@@ -12,6 +12,7 @@ public class Engine {
     private final String homeTeam;
     private final String awayTeam;
     private String kickOffTeam;
+
     private String attackingTeam;
     private final List<Player> homePlayers;
     private final List<Player> awayPlayers;
@@ -55,9 +56,9 @@ public class Engine {
         }
     }
 
-//    public boolean dribbleEvent(){
-//        return gameLog.get(gameLog.size()-1)=="Dribble";
-//    }
+    public void setAttackingTeam(String attackingTeam) {
+        this.attackingTeam = attackingTeam;
+    }
 
     public boolean checkForwardPlayer(List<Player> playerLog){
         return Objects.equals(playerLog.get(playerLog.size() - 1).getPosition(), "Forward");
