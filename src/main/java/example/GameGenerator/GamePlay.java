@@ -3,7 +3,6 @@ package example.GameGenerator;
 import example.Player;
 import example.RandomGenerator;
 import example.Team;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.Objects;
@@ -21,7 +20,7 @@ public class GamePlay {
         return gameLog.getGameLog();
     }
 
-    public GamePlay(@NotNull Team homeTeam, Team awayTeam) {
+    public GamePlay(Team homeTeam, Team awayTeam) {
         this.gameEvent = new GameEvent();
         this.gameLog = new GameLog();
         this.homeTeam = homeTeam.getLongName();
@@ -32,10 +31,10 @@ public class GamePlay {
 
     public void constructPlay(){
         gameStart();
-        for (int i = 1; i < 10; i++) {
+        for (int i = 1; i < 20; i++) {
             teamEventPlay();
             if (engine.checkForwardPlayer(gameLog.getPlayerLog())){
-                teamAttackPlay();
+                teamAttackPlay(); // or teamEventPlay
             }
         }
     }
@@ -65,15 +64,31 @@ public class GamePlay {
             gameLog.logEvent(attackPlay);
             gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
         } else if (Objects.equals(attackPlay, "Shot")){
-            gameLog.logEvent(gameEvent.goalEvent());
-            engine.attackTeamSwitch();
-            gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
+                gameLog.logEvent(attackPlay);
+    //            gameLog.logEvent(gameEvent.goalEventOpenPlay());
+
+                String keeperEvent = gameEvent.keeperShotEvent();
+
+                if (Objects.equals(keeperEvent, "Goal")){
+                    gameLog.logEvent("GOAL!!");
+                    gameLog.logEvent(gameEvent.goalEventOpenPlay());
+//                    gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
+                    engine.attackTeamSwitch();
+                    gameStart();
+                } else {
+                    gameLog.logEvent(keeperEvent);
+                    gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
+                    engine.attackTeamSwitch();
+                }
+
         } else {
             gameLog.logEvent(gameEvent.defendInPlayEvent());
             engine.attackTeamSwitch();
-            gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
         }
-    }
+//            gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
+//        engine.attackTeamSwitch();
+        }
+
 
     public void teamEventPlay(){
         String teamPlay = gameEvent.teamEvent();
@@ -82,7 +97,7 @@ public class GamePlay {
                 "Backwards Pass".equals(teamPlay) ||
                 "Dribble".equals(teamPlay)){
             gameLog.logEvent(teamPlay);
-            while (gameLog.dribbleEvent()){
+            while (gameLog.checkPlayerDribble()){
                 gameLog.logEvent(gameEvent.teamEvent());
             }
             gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));

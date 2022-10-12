@@ -39,7 +39,7 @@ public class GameLog {
         gameLog.add(player.playerDetails());
         playerLog.add(player);
     }
-    public boolean dribbleEvent(){
+    public boolean checkPlayerDribble(){
         return gameLog.get(gameLog.size()-1)=="Dribble";
     }
 }

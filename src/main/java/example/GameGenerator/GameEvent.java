@@ -47,16 +47,35 @@ public class GameEvent {
         };
         return RandomGenerator.getRandomEvent(keeperPlay);
     }
-    public String goalEvent(){
+
+    public String keeperShotEvent(){
+        String[] keeperPlay = new String[]{
+                "Save",
+                "Deflected",
+                "Goal"
+        };
+        return RandomGenerator.getRandomEvent(keeperPlay);
+    }
+
+
+    public String goalEventOpenPlay(){
         String[] goalPlay = new String[]{
                 "Goal from Header",
-                "Goal from Penalty",
-                "Goal from Free kick",
                 "Goal from Inside Box",
                 "Goal from Outside Box"
         };
         return RandomGenerator.getRandomEvent(goalPlay);
     }
+
+    public String goalEventClosedPlay(){
+        String[] goalPlay = new String[]{
+                "Goal from Penalty",
+                "Goal from Free kick"
+        };
+        return RandomGenerator.getRandomEvent(goalPlay);
+    }
+
+
     public String attackEvent(){
         String[] attackPlay = new String[]{
                 "Shot",
@@ -68,5 +87,6 @@ public class GameEvent {
         return RandomGenerator.getRandomEvent(attackPlay);
 
     }
+
 
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="GamePlayTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2022-10-10T15:32:48" hostname="LUK-5CG01160SZ" time="0.029">
+<testsuite name="GamePlayTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2022-10-12T13:58:57" hostname="LUK-5CG01160SZ" time="0.028">
   <properties/>
-  <testcase name="GivenTeams_AGameIsGenerated_AndSavedInTheGameLog()" classname="GamePlayTest" time="0.029">
-    <failure message="org.opentest4j.AssertionFailedError: expected: &lt;8&gt; but was: &lt;32&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;8&gt; but was: &lt;32&gt;
+  <testcase name="GivenTeams_AGameIsGenerated_AndSavedInTheGameLog()" classname="GamePlayTest" time="0.028">
+    <failure message="org.opentest4j.AssertionFailedError: expected: &lt;8&gt; but was: &lt;65&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;8&gt; but was: &lt;65&gt;
 	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
 	at app//org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
@@ -95,8 +95,8 @@
 	at app//worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
 </failure>
   </testcase>
-  <system-out><![CDATA[[Chelsea, Kai Havertz, Pass, Thiago Silva, Backwards Pass, Mateo Kovavic, Long Pass, Thiago Silva, Tackle, Gabriel Jesus, Goal from Inside Box, Thiago Silva, Backwards Pass, Reece James, Dribble, Dribble, Through Ball, Thiago Silva, Pass, Kai Havertz, Offside, Thiago Silva, Dribble, Dribble, Through Ball, Reece James, Long Pass, Kai Havertz, Hit Woodwork, Reece James, Tackle, Ben White]
-[Kai Havertz, Thiago Silva, Mateo Kovavic, Thiago Silva, Gabriel Jesus, Thiago Silva, Reece James, Thiago Silva, Kai Havertz, Thiago Silva, Reece James, Kai Havertz, Reece James, Ben White]
+  <system-out><![CDATA[[Arsenal, Rob Holding, Pass, Gabriel Jesus, Dribble, Long Pass, Ben White, Long Pass, Thomas Partey, Pass, Rob Holding, Interception, Kai Havertz, On Target, Reece James, Long Pass, Kai Havertz, Shot, GOAL!!, Goal from Outside Box, Arsenal, Ben White, Pass, Rob Holding, Long Pass, Ben White, Dribble, Pass, Thomas Partey, Interception, Reece James, Pass, Kai Havertz, Off Target, Mateo Kovavic, Dribble, Backwards Pass, Kai Havertz, On Target, Mateo Kovavic, Backwards Pass, Reece James, Long Pass, Kai Havertz, Hit Woodwork, Thiago Silva, Pass, Mateo Kovavic, Dribble, Long Pass, Kai Havertz, Hit Woodwork, Thiago Silva, Pass, Reece James, Dribble, Long Pass, Mateo Kovavic, Pass, Thiago Silva, Pass, Reece James, Dribble, Pass, Mateo Kovavic]
+[Rob Holding, Gabriel Jesus, Ben White, Thomas Partey, Rob Holding, Kai Havertz, Reece James, Kai Havertz, Ben White, Rob Holding, Ben White, Thomas Partey, Reece James, Kai Havertz, Mateo Kovavic, Kai Havertz, Mateo Kovavic, Reece James, Kai Havertz, Thiago Silva, Mateo Kovavic, Kai Havertz, Thiago Silva, Reece James, Mateo Kovavic, Thiago Silva, Reece James, Mateo Kovavic]
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
