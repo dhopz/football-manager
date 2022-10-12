@@ -25,4 +25,8 @@ public class RandomGenerator {
         return player.playerDetails();
     }
 
+    public static int randomPlay(){
+        return random.nextInt(2);
+    }
+
 }

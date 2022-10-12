@@ -15,5 +15,3 @@ O
 src/main/java/example/Team.java,f\2\f2d9752307165365fe32607a6bb07caaf77925fc
 Q
 !src/main/java/example/League.java,7\a\7a968474ddea2eb119c3377b6037e68f689840f9
-Z
-*src/main/java/example/RandomGenerator.java,9\8\98d8ad4c90e2aa6f9f6236bda3e4216be071dbc9

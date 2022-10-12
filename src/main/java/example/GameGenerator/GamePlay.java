@@ -34,7 +34,7 @@ public class GamePlay {
         for (int i = 1; i < 20; i++) {
             teamEventPlay();
             if (engine.checkForwardPlayer(gameLog.getPlayerLog())){
-                teamAttackPlay(); // or teamEventPlay
+                attackingPlayerEventPicker();
             }
         }
     }
@@ -107,6 +107,21 @@ public class GamePlay {
             engine.attackTeamSwitch();
             gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
         }
+    }
+
+    public void attackingPlayerEventPicker(){
+        int r = RandomGenerator.randomPlay();
+        switch (r) {
+            case 0:
+                teamEventPlay();
+                break;
+            case 1:
+                teamAttackPlay();
+                break;
+            default : break;
+        }
+
+
     }
 
 }
