@@ -2,8 +2,7 @@ package example.GameGenerator;
 
 import example.Player;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class GameLog {
     private List<Object> gameLog;
@@ -28,6 +27,7 @@ public class GameLog {
 
     public List<Object> getGameLog() {
         System.out.println(gameLog);
+        gameLogEvents();
         List<String> players = new ArrayList<>();
         for (Player player:playerLog){
             players.add(player.playerDetails());
@@ -41,5 +41,39 @@ public class GameLog {
     }
     public boolean checkPlayerDribble(){
         return gameLog.get(gameLog.size()-1)=="Dribble";
+    }
+
+    public void gameLogEvents(){
+        Map<Object,Integer> gameEventCounter = new HashMap<>();
+        for (Object event:gameLog){
+            if(!gameEventCounter.containsKey(event)){
+                gameEventCounter.put(event,1);
+            } else {
+                gameEventCounter.put(event,gameEventCounter.get(event)+1);
+            }
+        }
+        goalEvents(gameEventCounter);
+        System.out.println(gameEventCounter);
+        goalScorer(gameLog);
+
+    }
+
+    public void goalEvents(Map<Object,Integer> gameEventCounter){
+        if (gameEventCounter.containsKey("GOAL!!")){
+            System.out.println("Goals = " + gameEventCounter.get("GOAL!!"));
+        } else {
+            System.out.println("No Goals");
+        }
+    }
+
+    public void goalScorer(List<Object> gameLog){
+        String item = "GOAL!!";
+        System.out.println(gameLog.size());
+        for (int i = 0; i < gameLog.size(); i++) {
+            if (Objects.equals(gameLog.get(i), item)) {
+                System.out.println(i);
+                System.out.println(gameLog.get(i-2));
+            }
+        }
     }
 }

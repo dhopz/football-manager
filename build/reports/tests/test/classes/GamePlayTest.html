@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.030s</div>
+<div class="counter">0.034s</div>
 <p>duration</p>
 </div>
 </td>
@@ -76,14 +76,14 @@
 <a name="GivenTeams_AGameIsGenerated_AndSavedInTheGameLog()"></a>
 <h3 class="failures">GivenTeams_AGameIsGenerated_AndSavedInTheGameLog()</h3>
 <span class="code">
-<pre>org.opentest4j.AssertionFailedError: expected: &lt;8&gt; but was: &lt;60&gt;
+<pre>org.opentest4j.AssertionFailedError: expected: &lt;8&gt; but was: &lt;167&gt;
 	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
 	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
 	at app//org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
 	at app//org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
 	at app//org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
 	at app//org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:527)
-	at app//GamePlayTest.GivenTeams_AGameIsGenerated_AndSavedInTheGameLog(GamePlayTest.java:52)
+	at app//GamePlayTest.GivenTeams_AGameIsGenerated_AndSavedInTheGameLog(GamePlayTest.java:56)
 	at java.base@11.0.12/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base@11.0.12/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base@11.0.12/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -183,7 +183,7 @@
 </thead>
 <tr>
 <td class="failures">GivenTeams_AGameIsGenerated_AndSavedInTheGameLog()</td>
-<td class="failures">0.030s</td>
+<td class="failures">0.034s</td>
 <td class="failures">failed</td>
 </tr>
 </table>
@@ -191,8 +191,13 @@
 <div id="tab2" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>[Arsenal, Thomas Partey, Pass, Ben White, Interception, Reece James, Long Pass, Kai Havertz, Backwards Pass, Reece James, Pass, Kai Havertz, On Target, Reece James, Backwards Pass, Mateo Kovavic, Long Pass, Kai Havertz, Backwards Pass, Mateo Kovavic, Interception, Ben White, Dribble, Long Pass, Gabriel Jesus, On Target, Thomas Partey, Long Pass, Rob Holding, Pass, Thomas Partey, Pass, Rob Holding, Dribble, Pass, Ben White, Backwards Pass, Rob Holding, Pass, Ben White, Tackle, Thiago Silva, Long Pass, Reece James, Long Pass, Thiago Silva, Dribble, Dribble, Pass, Kai Havertz, Interception, Rob Holding, Dribble, Through Ball, Thomas Partey, Backwards Pass, Gabriel Jesus, Dribble, Pass, Rob Holding]
-[Thomas Partey, Ben White, Reece James, Kai Havertz, Reece James, Kai Havertz, Reece James, Mateo Kovavic, Kai Havertz, Mateo Kovavic, Ben White, Gabriel Jesus, Thomas Partey, Rob Holding, Thomas Partey, Rob Holding, Ben White, Rob Holding, Ben White, Thiago Silva, Reece James, Thiago Silva, Kai Havertz, Rob Holding, Thomas Partey, Gabriel Jesus, Rob Holding]
+<pre>[Chelsea, Mateo Kovavic, Pass, Kai Havertz, Backwards Pass, Mateo Kovavic, Backwards Pass, Kai Havertz, Long Pass, Thiago Silva, Long Pass, Kai Havertz, Long Pass, Reece James, Pass, Thiago Silva, Long Pass, Mateo Kovavic, Dribble, Long Pass, Reece James, Pass, Kai Havertz, Shot, GOAL!!, Goal from Outside Box, Chelsea, Thiago Silva, Pass, Mateo Kovavic, Pass, Thiago Silva, Backwards Pass, Mateo Kovavic, Dribble, Pass, Kai Havertz, Hit Woodwork, Mason Mount, Backwards Pass, Kai Havertz, Long Pass, Mason Mount, Tackle, Gabriel Jesus, Long Pass, Ben White, Tackle, Mason Mount, Long Pass, Mateo Kovavic, Backwards Pass, Reece James, Long Pass, Mateo Kovavic, Long Pass, Reece James, Long Pass, Mason Mount, Pass, Kai Havertz, Long Pass, Reece James, Pass, Mateo Kovavic, Dribble, Long Pass, Mason Mount, Off Target, Reece James, Backwards Pass, Kai Havertz, Dribble, Long Pass, Mateo Kovavic, Dribble, Dribble, Backwards Pass, Kai Havertz, Backwards Pass, Mason Mount, Backwards Pass, Reece James, Long Pass, Thiago Silva, Backwards Pass, Mason Mount, Shot, Deflected, Thiago Silva, Backwards Pass, Thomas Partey, Backwards Pass, Ben White, Backwards Pass, Gabriel Jesus, Long Pass, Thomas Partey, Pass, Rob Holding, Long Pass, Bakary Saka, Off Target, Gabriel Jesus, Dribble, Dribble, Dribble, Dribble, Through Ball, Ben White, Interception, Thiago Silva, Dribble, Dribble, Through Ball, Kai Havertz, Hit Woodwork, Mason Mount, Dribble, Dribble, Through Ball, Mateo Kovavic, Tackle, Ben White, Pass, Rob Holding, Dribble, Through Ball, Bakary Saka, Backwards Pass, Rob Holding, Pass, Ben White, Dribble, Pass, Thomas Partey, Pass, Rob Holding, Pass, Gabriel Jesus, Dribble, Long Pass, Bakary Saka, Long Pass, Thomas Partey, Backwards Pass, Rob Holding, Dribble, Backwards Pass, Thomas Partey, Backwards Pass, Ben White, Backwards Pass, Bakary Saka, Dribble, Through Ball, Ben White, Long Pass, Gabriel Jesus, Off Target, Rob Holding, Backwards Pass, Bakary Saka, On Target, Rob Holding, Pass, Thomas Partey]
+Goals = 1
+{Mason Mount=8, Kai Havertz=10, Through Ball=5, Thomas Partey=6, Backwards Pass=19, Bakary Saka=5, Goal from Outside Box=1, Dribble=19, GOAL!!=1, Pass=15, Rob Holding=7, Chelsea=2, Reece James=7, Interception=1, Thiago Silva=7, Mateo Kovavic=10, Deflected=1, Ben White=7, Tackle=3, Gabriel Jesus=5, Off Target=3, On Target=1, Long Pass=20, Shot=2, Hit Woodwork=2}
+167
+24
+Kai Havertz
+[Mateo Kovavic, Kai Havertz, Mateo Kovavic, Kai Havertz, Thiago Silva, Kai Havertz, Reece James, Thiago Silva, Mateo Kovavic, Reece James, Kai Havertz, Thiago Silva, Mateo Kovavic, Thiago Silva, Mateo Kovavic, Kai Havertz, Mason Mount, Kai Havertz, Mason Mount, Gabriel Jesus, Ben White, Mason Mount, Mateo Kovavic, Reece James, Mateo Kovavic, Reece James, Mason Mount, Kai Havertz, Reece James, Mateo Kovavic, Mason Mount, Reece James, Kai Havertz, Mateo Kovavic, Kai Havertz, Mason Mount, Reece James, Thiago Silva, Mason Mount, Thiago Silva, Thomas Partey, Ben White, Gabriel Jesus, Thomas Partey, Rob Holding, Bakary Saka, Gabriel Jesus, Ben White, Thiago Silva, Kai Havertz, Mason Mount, Mateo Kovavic, Ben White, Rob Holding, Bakary Saka, Rob Holding, Ben White, Thomas Partey, Rob Holding, Gabriel Jesus, Bakary Saka, Thomas Partey, Rob Holding, Thomas Partey, Ben White, Bakary Saka, Ben White, Gabriel Jesus, Rob Holding, Bakary Saka, Rob Holding, Thomas Partey]
 </pre>
 </span>
 </div>
@@ -204,7 +209,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.4</a> at 12 Oct 2022, 15:12:38</p>
+<a href="http://www.gradle.org">Gradle 7.4</a> at 12 Oct 2022, 15:47:25</p>
 </div>
 </div>
 </body>

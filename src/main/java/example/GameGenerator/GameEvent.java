@@ -60,7 +60,7 @@ public class GameEvent {
 
     public String goalEventOpenPlay(){
         String[] goalPlay = new String[]{
-                "Goal from Header",
+//                "Goal from Header",
                 "Goal from Inside Box",
                 "Goal from Outside Box"
         };

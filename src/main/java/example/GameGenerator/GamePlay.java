@@ -31,7 +31,7 @@ public class GamePlay {
 
     public void constructPlay(){
         gameStart();
-        for (int i = 1; i < 20; i++) {
+        for (int i = 1; i < 50; i++) {
             teamEventPlay();
             if (engine.checkForwardPlayer(gameLog.getPlayerLog())){
                 attackingPlayerEventPicker();
@@ -65,29 +65,26 @@ public class GamePlay {
             gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
         } else if (Objects.equals(attackPlay, "Shot")){
                 gameLog.logEvent(attackPlay);
-    //            gameLog.logEvent(gameEvent.goalEventOpenPlay());
-
                 String keeperEvent = gameEvent.keeperShotEvent();
-
-                if (Objects.equals(keeperEvent, "Goal")){
-                    gameLog.logEvent("GOAL!!");
-                    gameLog.logEvent(gameEvent.goalEventOpenPlay());
-//                    gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
-                    engine.attackTeamSwitch();
-                    gameStart();
-                } else {
-                    gameLog.logEvent(keeperEvent);
-                    gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
-                    engine.attackTeamSwitch();
-                }
-
+                shotOutcome(keeperEvent);
         } else {
             gameLog.logEvent(gameEvent.defendInPlayEvent());
             engine.attackTeamSwitch();
         }
-//            gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
-//        engine.attackTeamSwitch();
+    }
+
+    public void shotOutcome(String keeperEvent){
+        if (Objects.equals(keeperEvent, "Goal")){
+            gameLog.logEvent("GOAL!!");
+            gameLog.logEvent(gameEvent.goalEventOpenPlay());
+            engine.attackTeamSwitch();
+            gameStart();
+        } else {
+            gameLog.logEvent(keeperEvent);
+            gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
+            engine.attackTeamSwitch();
         }
+    }
 
 
     public void teamEventPlay(){
