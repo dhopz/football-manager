@@ -32,6 +32,9 @@ public class GamePlay {
     public void constructPlay(){
         gameStart();
         for (int i = 1; i < 50; i++) {
+            if (engine.checkMidfieldPlayer(gameLog.getPlayerLog())){
+                midfieldPlayerEventPicker();
+            }
             teamEventPlay();
             if (engine.checkForwardPlayer(gameLog.getPlayerLog())){
                 attackingPlayerEventPicker();
@@ -117,8 +120,15 @@ public class GamePlay {
                 break;
             default : break;
         }
+    }
 
-
+    public void midfieldPlayerEventPicker(){
+        int r = RandomGenerator.randomNumber();
+        if (r < 75){
+            teamEventPlay();
+        } else {
+            teamAttackPlay();
+        }
     }
 
 }

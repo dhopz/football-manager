@@ -29,4 +29,8 @@ public class RandomGenerator {
         return random.nextInt(2);
     }
 
+    public static int randomNumber(){
+        return random.nextInt(100);
+    }
+
 }

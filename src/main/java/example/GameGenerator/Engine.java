@@ -64,4 +64,8 @@ public class Engine {
         return Objects.equals(playerLog.get(playerLog.size() - 1).getPosition(), "Forward");
     }
 
+    public boolean checkMidfieldPlayer(List<Player> playerLog){
+        return Objects.equals(playerLog.get(playerLog.size() - 1).getPosition(), "Midfielder");
+    }
+
 }
