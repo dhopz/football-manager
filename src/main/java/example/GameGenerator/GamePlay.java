@@ -82,10 +82,19 @@ public class GamePlay {
             gameLog.logEvent(gameEvent.goalEventOpenPlay());
             engine.attackTeamSwitch();
             gameStart();
+        } else if (Objects.equals(keeperEvent, "Save")) {
+            gameLog.logEvent(keeperEvent);
+//            gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
+            engine.attackTeamSwitch();
         } else {
             gameLog.logEvent(keeperEvent);
+            if (Objects.equals(gameEvent.outOfBoundsEvent(), "Out")){
+                gameLog.logEvent("Out");
+                gameLog.logEvent("Corner");
+            } else {
+                gameLog.logEvent("Back in Play");
+            }
             gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
-            engine.attackTeamSwitch();
         }
     }
 

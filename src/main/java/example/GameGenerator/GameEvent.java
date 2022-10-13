@@ -85,7 +85,11 @@ public class GameEvent {
                 "Offside"
         };
         return RandomGenerator.getRandomEvent(attackPlay);
+    }
 
+    public String outOfBoundsEvent(){
+        String[] outOfBounds = new String[]{"In","Out"};
+        return RandomGenerator.getRandomEvent(outOfBounds);
     }
 
 
