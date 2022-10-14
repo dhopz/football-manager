@@ -9,8 +9,6 @@ N
 src/test/java/ResultsTest.java,5\2\527de37f6e34459396507df4c9fe6550f8f4cf81
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
-N
-src/main/java/example/App.java,4\b\4b4279dd8f0e1911f5b89cf8746f6d0d30a62fd2
 O
 src/main/java/example/Team.java,f\2\f2d9752307165365fe32607a6bb07caaf77925fc
 Q

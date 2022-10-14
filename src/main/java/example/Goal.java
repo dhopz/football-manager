@@ -5,9 +5,12 @@ public class Goal {
 
     private final int goalNumber;
 
-    public Goal(String playerName) {
+    private final double timeScored;
+
+    public Goal(String playerName, int timeScored) {
         this.playerName = playerName;
         this.goalNumber = 1;
+        this.timeScored = timeScored;
     }
 
     public String getPlayerName() {
@@ -16,6 +19,14 @@ public class Goal {
 
     public int getGoal() {
         return goalNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Goal{" +
+                "playerName='" + playerName + '\'' +
+                ", timeScored=" + timeScored +
+                '}';
     }
 
 }

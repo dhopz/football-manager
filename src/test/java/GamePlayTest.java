@@ -55,4 +55,6 @@ class GamePlayTest {
         gamePlay.constructPlay();
         assertEquals(8, gamePlay.getGameLog().size());
     }
+
+
 }

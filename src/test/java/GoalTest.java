@@ -7,7 +7,7 @@ class GoalTest {
 
     @Test
     void createGoal(){
-        Goal goal = new Goal("Bakary Saka");
+        Goal goal = new Goal("Bakary Saka",10);
         assertEquals(1, goal.getGoal());
         assertEquals("Bakary Saka", goal.getPlayerName());
     }

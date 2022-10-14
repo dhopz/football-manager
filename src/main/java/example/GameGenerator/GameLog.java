@@ -9,9 +9,17 @@ public class GameLog {
     private List<Object> gameLog;
     private List<Player> playerLog;
 
+
+
+    private List<Goal> goalLog;
+
     public GameLog() {
         this.gameLog = new ArrayList<>();
         this.playerLog = new ArrayList<>();
+        this.goalLog = new ArrayList<>();
+    }
+    public List<Goal> getGoalLog() {
+        return goalLog;
     }
 
     public List<Player> getPlayerLog() {
@@ -22,18 +30,17 @@ public class GameLog {
         gameLog.add(event);
     }
 
-    public void addPlayer(Player player){
-        playerLog.add(player);
-    }
-
-    public List<Object> getGameLog() {
-        System.out.println(gameLog);
-        gameLogEvents();
+    public void displayPlayerLog(){
         List<String> players = new ArrayList<>();
         for (Player player:playerLog){
             players.add(player.playerDetails());
         }
         System.out.println(players);
+    }
+
+    public List<Object> getGameLog() {
+        System.out.println(gameLog);
+        gameLogEvents();
         return gameLog;
     }
     public void logPlayEvent(Player player){
@@ -56,6 +63,7 @@ public class GameLog {
         goalEvents(gameEventCounter);
         System.out.println(gameEventCounter);
         goalScorer(gameLog);
+        getGoalScorer();
 
     }
 
@@ -71,8 +79,14 @@ public class GameLog {
         String item = "GOAL!!";
         for (int i = 0; i < gameLog.size(); i++) {
             if (Objects.equals(gameLog.get(i), item)) {
-                new Goal((String) gameLog.get(i-2));
+                goalLog.add(new Goal((String) gameLog.get(i-2),
+                        (int) Math.floor((double) i/gameLog.size()*90)));
             }
+        }
+    }
+    public void getGoalScorer(){
+        for (Goal goal:goalLog){
+            System.out.println(goal.toString());
         }
     }
 }
