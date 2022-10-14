@@ -1,5 +1,6 @@
 package example.GameGenerator;
 
+import example.Goal;
 import example.Player;
 
 import java.util.*;
@@ -68,11 +69,9 @@ public class GameLog {
 
     public void goalScorer(List<Object> gameLog){
         String item = "GOAL!!";
-        System.out.println(gameLog.size());
         for (int i = 0; i < gameLog.size(); i++) {
             if (Objects.equals(gameLog.get(i), item)) {
-                System.out.println(i);
-                System.out.println(gameLog.get(i-2));
+                new Goal((String) gameLog.get(i-2));
             }
         }
     }

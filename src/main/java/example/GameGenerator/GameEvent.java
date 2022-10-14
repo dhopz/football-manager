@@ -92,5 +92,4 @@ public class GameEvent {
         return RandomGenerator.getRandomEvent(outOfBounds);
     }
 
-
 }
