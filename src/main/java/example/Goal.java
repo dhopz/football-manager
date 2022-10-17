@@ -29,4 +29,7 @@ public class Goal {
                 '}';
     }
 
+    protected double getTimeScored() {
+        return timeScored;
+    }
 }

@@ -1,5 +1,6 @@
 package example.GameGenerator;
 
+import example.Card;
 import example.Goal;
 import example.Player;
 
@@ -8,15 +9,14 @@ import java.util.*;
 public class GameLog {
     private List<Object> gameLog;
     private List<Player> playerLog;
-
-
-
+    private List<Card> cardLog;
     private List<Goal> goalLog;
 
     public GameLog() {
         this.gameLog = new ArrayList<>();
         this.playerLog = new ArrayList<>();
         this.goalLog = new ArrayList<>();
+        this.cardLog = new ArrayList<>();
     }
     public List<Goal> getGoalLog() {
         return goalLog;
@@ -63,7 +63,9 @@ public class GameLog {
 //        goalEvents(gameEventCounter);
         System.out.println(gameEventCounter);
         goalScorer(gameLog);
+        cardIssued(gameLog);
         getGoalScorer();
+        getCardIssued();
 
     }
 
@@ -84,9 +86,26 @@ public class GameLog {
             }
         }
     }
+
+    public void cardIssued(List<Object> gameLog){
+        String item = "Foul";
+        for (int i = 0; i < gameLog.size(); i++) {
+            if (Objects.equals(gameLog.get(i), item)) {
+                goalLog.add(new Card((String) gameLog.get(i+1),
+                        (int) Math.floor((double) i/gameLog.size()*90),
+                        "Yellow"));
+            }
+        }
+    }
     public void getGoalScorer(){
         for (Goal goal:goalLog){
             System.out.println(goal.toString());
+        }
+    }
+
+    public void getCardIssued(){
+        for (Card card:cardLog){
+            System.out.println(card.toString());
         }
     }
 }
