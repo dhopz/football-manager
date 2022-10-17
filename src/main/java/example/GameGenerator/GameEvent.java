@@ -92,4 +92,9 @@ public class GameEvent {
         return RandomGenerator.getRandomEvent(outOfBounds);
     }
 
+    public String foulEvent(){
+        String[] outOfBounds = new String[]{"Red","Yellow","Foul"};
+        return RandomGenerator.getRandomEvent(outOfBounds);
+    }
+
 }

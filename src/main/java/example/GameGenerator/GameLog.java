@@ -93,7 +93,7 @@ public class GameLog {
             if (Objects.equals(gameLog.get(i), item)) {
                 goalLog.add(new Card((String) gameLog.get(i+1),
                         (int) Math.floor((double) i/gameLog.size()*90),
-                        "Yellow"));
+                        (String) gameLog.get(i)));
             }
         }
     }
