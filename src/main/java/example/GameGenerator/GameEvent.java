@@ -34,7 +34,7 @@ public class GameEvent {
         String[] defencePlay = new String[]{
                 "Interception",
                 "Tackle",
-//                "Foul"
+                "Foul"
         };
         return RandomGenerator.getRandomEvent(defencePlay);
     }

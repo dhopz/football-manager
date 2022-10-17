@@ -71,8 +71,18 @@ public class GamePlay {
                 String keeperEvent = gameEvent.keeperShotEvent();
                 shotOutcome(keeperEvent);
         } else {
-            gameLog.logEvent(gameEvent.defendInPlayEvent());
-            engine.attackTeamSwitch();
+            String defenderEvent = gameEvent.defendInPlayEvent();
+            if (!Objects.equals(defenderEvent, "Foul")){
+                gameLog.logEvent(defenderEvent);
+                engine.attackTeamSwitch();
+                gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
+            } else {
+                gameLog.logEvent(defenderEvent);
+                engine.attackTeamSwitch();
+                gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
+                engine.attackTeamSwitch();
+                gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
+            }
         }
     }
 
@@ -112,9 +122,21 @@ public class GamePlay {
             gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
 
         } else {
-            gameLog.logEvent(gameEvent.defendInPlayEvent());
-            engine.attackTeamSwitch();
-            gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
+            String defenderEvent = gameEvent.defendInPlayEvent();
+            if (!Objects.equals(defenderEvent, "Foul")){
+                gameLog.logEvent(defenderEvent);
+//                engine.attackTeamSwitch();
+                gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
+                engine.attackTeamSwitch();
+
+            } else {
+                gameLog.logEvent(defenderEvent);
+                engine.attackTeamSwitch();
+                gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
+                engine.attackTeamSwitch();
+                gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
+
+            }
         }
     }
 

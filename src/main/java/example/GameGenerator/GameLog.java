@@ -60,7 +60,7 @@ public class GameLog {
                 gameEventCounter.put(event,gameEventCounter.get(event)+1);
             }
         }
-        goalEvents(gameEventCounter);
+//        goalEvents(gameEventCounter);
         System.out.println(gameEventCounter);
         goalScorer(gameLog);
         getGoalScorer();
