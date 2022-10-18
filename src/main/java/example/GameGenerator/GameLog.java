@@ -88,12 +88,17 @@ public class GameLog {
     }
 
     public void cardIssued(List<Object> gameLog){
-        String item = "Foul";
+//        String yellow = "Yellow";
         for (int i = 0; i < gameLog.size(); i++) {
-            if (Objects.equals(gameLog.get(i), item)) {
+            if (Objects.equals(gameLog.get(i), "Yellow")) {
                 goalLog.add(new Card((String) gameLog.get(i+1),
                         (int) Math.floor((double) i/gameLog.size()*90),
-                        (String) gameLog.get(i)));
+                        "Yellow"));
+            }
+            if (Objects.equals(gameLog.get(i), "Red")) {
+                goalLog.add(new Card((String) gameLog.get(i+1),
+                        (int) Math.floor((double) i/gameLog.size()*90),
+                        "Red"));
             }
         }
     }

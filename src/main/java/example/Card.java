@@ -15,12 +15,12 @@ public class Card extends Goal{
 
     @Override
     public String toString() {
-        String playerName = this.getPlayerName();
-        double timeScored = this.getTimeScored();
+//        String playerName = this.getPlayerName();
+//        double timeScored = this.getTimeScored();
         return "Card{" +
-                "PlayerName='" + playerName + '\'' +
+                "PlayerName='" + this.getPlayerName() + '\'' +
                 "cardType='" + cardType + '\'' +
-                "time='" + timeScored + '\'' +
+                "time='" + this.getTimeScored() + '\'' +
                 '}';
     }
 

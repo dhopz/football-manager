@@ -123,9 +123,9 @@ public class GamePlay {
 
         } else {
             String defenderEvent = gameEvent.defendInPlayEvent();
-            if (!Objects.equals(defenderEvent, "Foul")){
-                gameLog.logEvent(gameEvent.foulEvent());
-//                engine.attackTeamSwitch();
+            if (Objects.equals(defenderEvent, "Foul")){
+                gameLog.logEvent(foulEventPicker());
+                engine.attackTeamSwitch();
                 gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
                 engine.attackTeamSwitch();
 
@@ -133,8 +133,8 @@ public class GamePlay {
                 gameLog.logEvent(defenderEvent);
                 engine.attackTeamSwitch();
                 gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
-                engine.attackTeamSwitch();
-                gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
+//                engine.attackTeamSwitch();
+//                gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
 
             }
         }
@@ -162,16 +162,14 @@ public class GamePlay {
         }
     }
 
-    public void foulEventPicker(){
-        int r = RandomGenerator.randomPlay();
-        switch (r) {
-            case 0:
-                teamEventPlay();
-                break;
-            case 1:
-                teamAttackPlay();
-                break;
-            default : break;
+    public String foulEventPicker(){
+        int r = RandomGenerator.randomNumber();
+        if (r < 50){
+            return "Foul";
+        } else if (r > 50 && r < 80) {
+            return "Yellow";
+        } else {
+            return "Red";
         }
     }
 

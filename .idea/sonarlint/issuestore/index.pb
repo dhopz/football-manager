@@ -15,7 +15,7 @@ Q
 !src/main/java/example/League.java,7\a\7a968474ddea2eb119c3377b6037e68f689840f9
 5
 Notes,7\0\70440046a3dc2e079f23ee1c57dfa76669b732aa
-Z
-*src/main/java/example/RandomGenerator.java,9\8\98d8ad4c90e2aa6f9f6236bda3e4216be071dbc9
 N
 src/test/java/GameLogTest.java,6\a\6abc09bd87bbcf6288e40be0e8774e3ac086281f
+K
+src/test/java/CardTest.java,8\c\8c75dafb85c7dde7dcd0280c19de6dee9cfdd8f3
