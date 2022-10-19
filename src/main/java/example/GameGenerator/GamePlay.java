@@ -1,6 +1,5 @@
 package example.GameGenerator;
 
-import example.Player;
 import example.RandomGenerator;
 import example.Team;
 
@@ -51,11 +50,15 @@ public class GamePlay {
         gameLog.logEvent(kickOffTeam);
         attackingTeam = kickOffTeam;
         engine.setAttackingTeam(kickOffTeam);
-        Player player = engine.playerSelect(kickOffTeam);
-        gameLog.logPlayEvent(player);
+        gameLog.logPlayEvent(engine.playerSelect(kickOffTeam));
         gameLog.logEvent("Pass");
-        Player player1 = engine.checkPlayer(gameLog.getPlayerLog());
-        gameLog.logPlayEvent(player1);
+        gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
+    }
+
+    public void playStart(){
+        gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
+        gameLog.logEvent("Pass");
+        gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
     }
 
     public void teamAttackPlay(){
@@ -128,14 +131,11 @@ public class GamePlay {
                 engine.attackTeamSwitch();
                 gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
                 engine.attackTeamSwitch();
-
+                playStart();
             } else {
                 gameLog.logEvent(defenderEvent);
                 engine.attackTeamSwitch();
                 gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
-//                engine.attackTeamSwitch();
-//                gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
-
             }
         }
     }
@@ -166,7 +166,7 @@ public class GamePlay {
         int r = RandomGenerator.randomNumber();
         if (r < 50){
             return "Foul";
-        } else if (r > 50 && r < 80) {
+        } else if (r > 50 && r < 90) {
             return "Yellow";
         } else {
             return "Red";
