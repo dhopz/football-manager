@@ -1,5 +1,6 @@
 package example.GameGenerator;
 
+import example.Card;
 import example.RandomGenerator;
 import example.Team;
 
@@ -125,6 +126,17 @@ public class GamePlay {
                 engine.attackTeamSwitch();
                 gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
             }
+        }
+    }
+
+    public void checkYellowCardedPlayers(String playerName){
+        for (Card card:gameLog.getCardLog()){
+            gameLog.logEvent(card.toString());
+            System.out.println(card.toString());
+            if (Objects.equals(card.getPlayerName(), playerName) && Objects.equals(card.getCardType(), "Yellow")){
+                System.out.println("Player has already been booked!");
+            }
+
         }
     }
 

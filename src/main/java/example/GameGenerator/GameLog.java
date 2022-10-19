@@ -12,6 +12,10 @@ public class GameLog {
     private List<Card> cardLog;
     private List<Goal> goalLog;
 
+    public List<Card> getCardLog() {
+        return cardLog;
+    }
+
     public GameLog() {
         this.gameLog = new ArrayList<>();
         this.playerLog = new ArrayList<>();
@@ -29,6 +33,7 @@ public class GameLog {
     public void logEvent(String event){
         gameLog.add(event);
     }
+
 
     public void displayPlayerLog(){
         List<String> players = new ArrayList<>();
@@ -87,16 +92,20 @@ public class GameLog {
         }
     }
 
+    public void addYellowCard(){
+        cardLog.add(new Card((String) gameLog.get(gameLog.size()-1),55,"Yellow"));
+    }
+
     public void cardIssued(List<Object> gameLog){
 //        String yellow = "Yellow";
         for (int i = 0; i < gameLog.size(); i++) {
             if (Objects.equals(gameLog.get(i), "Yellow")) {
-                goalLog.add(new Card((String) gameLog.get(i+1),
+                cardLog.add(new Card((String) gameLog.get(i+1),
                         (int) Math.floor((double) i/gameLog.size()*90),
                         "Yellow"));
             }
             if (Objects.equals(gameLog.get(i), "Red")) {
-                goalLog.add(new Card((String) gameLog.get(i+1),
+                cardLog.add(new Card((String) gameLog.get(i+1),
                         (int) Math.floor((double) i/gameLog.size()*90),
                         "Red"));
             }
@@ -113,4 +122,5 @@ public class GameLog {
             System.out.println(card.toString());
         }
     }
+
 }
