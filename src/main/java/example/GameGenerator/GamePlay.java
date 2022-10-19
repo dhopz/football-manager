@@ -73,19 +73,6 @@ public class GamePlay {
                 gameLog.logEvent(attackPlay);
                 String keeperEvent = gameEvent.keeperShotEvent();
                 shotOutcome(keeperEvent);
-        } else {
-            String defenderEvent = gameEvent.defendInPlayEvent();
-            if (!Objects.equals(defenderEvent, "Foul")){
-                gameLog.logEvent(gameEvent.foulEvent());
-                engine.attackTeamSwitch();
-                gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
-            } else {
-                gameLog.logEvent(defenderEvent);
-                engine.attackTeamSwitch();
-                gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
-                engine.attackTeamSwitch();
-                gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
-            }
         }
     }
 
@@ -94,7 +81,8 @@ public class GamePlay {
             gameLog.logEvent("GOAL!!");
             gameLog.logEvent(gameEvent.goalEventOpenPlay());
             engine.attackTeamSwitch();
-            gameStart();
+            gameLog.logEvent("Kick Off");
+            playStart();
         } else if (Objects.equals(keeperEvent, "Save")) {
             gameLog.logEvent(keeperEvent);
 //            gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
