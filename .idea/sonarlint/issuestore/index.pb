@@ -19,3 +19,9 @@ N
 src/test/java/GameLogTest.java,6\a\6abc09bd87bbcf6288e40be0e8774e3ac086281f
 K
 src/test/java/CardTest.java,8\c\8c75dafb85c7dde7dcd0280c19de6dee9cfdd8f3
+O
+src/main/java/example/Goal.java,4\4\44683a42470084a47cb885fb316541b2d2a7f9d3
+O
+src/main/java/example/Card.java,0\6\06444c087dd8034ebf080c996a9d99477844cd97
+Z
+*src/main/java/example/RandomGenerator.java,9\8\98d8ad4c90e2aa6f9f6236bda3e4216be071dbc9

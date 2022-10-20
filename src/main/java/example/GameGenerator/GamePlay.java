@@ -119,6 +119,13 @@ public class GamePlay {
                 gameLog.logEvent(foulEventPicker());
                 engine.attackTeamSwitch();
                 gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
+                //do something here
+                if (gameLog.checkYellowCard()){
+                    gameLog.addYellowCard();
+                }
+                if (gameLog.checkRedCard()){
+                    gameLog.addRedCard();
+                }
                 engine.attackTeamSwitch();
                 playStart();
             } else {

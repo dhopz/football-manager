@@ -56,6 +56,13 @@ public class GameLog {
         return gameLog.get(gameLog.size()-1)=="Dribble";
     }
 
+    public boolean checkYellowCard(){
+        return gameLog.get(gameLog.size()-2)=="Yellow";
+    }
+    public boolean checkRedCard(){
+        return gameLog.get(gameLog.size()-2)=="Red";
+    }
+
     public void gameLogEvents(){
         Map<Object,Integer> gameEventCounter = new HashMap<>();
         for (Object event:gameLog){
@@ -68,7 +75,7 @@ public class GameLog {
 //        goalEvents(gameEventCounter);
         System.out.println(gameEventCounter);
         goalScorer(gameLog);
-        cardIssued(gameLog);
+//        cardIssued(gameLog);
         getGoalScorer();
         getCardIssued();
 
@@ -96,7 +103,11 @@ public class GameLog {
         cardLog.add(new Card((String) gameLog.get(gameLog.size()-1),55,"Yellow"));
     }
 
-    public void cardIssued(List<Object> gameLog){
+    public void addRedCard(){
+        cardLog.add(new Card((String) gameLog.get(gameLog.size()-1),55,"Red"));
+    }
+
+    public void cardIssued(){
 //        String yellow = "Yellow";
         for (int i = 0; i < gameLog.size(); i++) {
             if (Objects.equals(gameLog.get(i), "Yellow")) {
