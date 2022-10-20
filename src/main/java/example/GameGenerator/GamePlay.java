@@ -135,15 +135,15 @@ public class GamePlay {
 
     private void generateCard(String foulType) {
         if (Objects.equals(foulType, "Yellow")){
-            System.out.println(gameLog.checkCardCount());
-            System.out.println(gameLog.getLastPlayer() + " last player");
-            gameLog.checkIfAlreadyBooked();
-            gameLog.addYellowCard();
+            if (gameLog.checkIfAlreadyBooked()){
+                gameLog.addRedCard();
+            } else {
+                gameLog.addYellowCard();
+            }
         } else if (Objects.equals(foulType, "Red")) {
             gameLog.addRedCard();
         }
     }
-
 
     public void attackingPlayerEventPicker(){
         int r = RandomGenerator.randomPlay();
@@ -171,7 +171,7 @@ public class GamePlay {
         int r = RandomGenerator.randomNumber();
         if (r <= 60){
             return "Foul";
-        } else if (r > 61 && r < 95) {
+        } else if (r > 61 && r < 97) {
             return "Yellow";
         } else {
             return "Red";

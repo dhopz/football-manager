@@ -64,13 +64,16 @@ public class GameLog {
         return (String) gameLog.get(gameLog.size()-1);
     }
 
-    public void checkIfAlreadyBooked(){
+    public boolean checkIfAlreadyBooked(){
         String player = getLastPlayer();
-        System.out.println(checkCardCount().get(player) + " this is the card count");
         if (checkCardCount().get(player)== null){
-            System.out.println("Player has been warned");
+            System.out.println(player + " has been warned");
+            return false;
         } else if (checkCardCount().get(player)== 1) {
-            System.out.println("Player has been sent off!");
+            System.out.println(player + " has been sent OFF!");
+            return true;
+        } else {
+            return false;
         }
     }
 
