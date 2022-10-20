@@ -16,6 +16,7 @@ public class Engine {
     private String attackingTeam;
     private final List<Player> homePlayers;
     private final List<Player> awayPlayers;
+
     public Engine(Team homeTeam, Team awayTeam) {
         this.homeTeam = homeTeam.getLongName();
         this.awayTeam = awayTeam.getLongName();
@@ -66,6 +67,14 @@ public class Engine {
 
     public boolean checkMidfieldPlayer(List<Player> playerLog){
         return Objects.equals(playerLog.get(playerLog.size() - 1).getPosition(), "Midfielder");
+    }
+
+    public List<Player> getHomePlayers() {
+        return homePlayers;
+    }
+
+    public List<Player> getAwayPlayers() {
+        return awayPlayers;
     }
 
 }

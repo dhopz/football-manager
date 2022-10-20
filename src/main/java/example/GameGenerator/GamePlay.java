@@ -1,5 +1,6 @@
 package example.GameGenerator;
 
+import example.Player;
 import example.RandomGenerator;
 import example.Team;
 
@@ -137,11 +138,14 @@ public class GamePlay {
         if (Objects.equals(foulType, "Yellow")){
             if (gameLog.checkIfAlreadyBooked()){
                 gameLog.addRedCard();
+                System.out.println(gameLog.getLastPlayer());
+                redCardEvent(gameLog.getLastPlayer());
             } else {
                 gameLog.addYellowCard();
             }
         } else if (Objects.equals(foulType, "Red")) {
             gameLog.addRedCard();
+            redCardEvent(gameLog.getLastPlayer());
         }
     }
 
@@ -176,6 +180,29 @@ public class GamePlay {
         } else {
             return "Red";
         }
+    }
+
+    public void redCardEvent(String playerSentOff){
+        Player playerToRemove = null;
+        for(Player player:engine.getHomePlayers()) {
+            if(player.playerDetails().equals(playerSentOff)) {
+                playerToRemove = player;
+                break;
+            }
+        }
+        engine.getHomePlayers().remove(playerToRemove);
+
+        System.out.println(engine.getHomePlayers());
+
+        for(Player player: engine.getHomePlayers()){
+            System.out.println(player.playerDetails());
+        }
+
+        for (Player player: engine.getAwayPlayers()){
+            System.out.println(player.playerDetails());
+        }
+
+
     }
 
 }
