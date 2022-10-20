@@ -31,7 +31,7 @@ public class GamePlay {
 
     public void constructPlay(){
         gameStart();
-        for (int i = 1; i < 50; i++) {
+        for (int i = 1; i < 100; i++) {
             if (engine.checkMidfieldPlayer(gameLog.getPlayerLog())){
                 midfieldPlayerEventPicker();
             }
@@ -122,6 +122,13 @@ public class GamePlay {
                 //do something here
                 if (gameLog.checkYellowCard()){
                     gameLog.addYellowCard();
+                    if (gameLog.checkIfAlreadyBooked()){
+                        System.out.println(gameLog.checkCardCount());
+                        gameLog.logEvent("OUT OF HERE");
+                        System.out.println("Out oF HeRe!!");
+                        gameLog.addRedCard();
+                        System.out.println(gameLog.checkCardCount());
+                    }
                 }
                 if (gameLog.checkRedCard()){
                     gameLog.addRedCard();

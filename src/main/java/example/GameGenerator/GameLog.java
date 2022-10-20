@@ -59,6 +59,29 @@ public class GameLog {
     public boolean checkYellowCard(){
         return gameLog.get(gameLog.size()-2)=="Yellow";
     }
+
+    public String getLastPlayer(){
+        return (String) gameLog.get(gameLog.size()-1);
+    }
+
+    public boolean checkIfAlreadyBooked(){
+        String player = getLastPlayer();
+        return checkCardCount().get(player) == 2;
+//        return checkCardCount().containsKey(player);
+    }
+
+    public Map<String,Integer> checkCardCount(){
+        Map<String,Integer> cardCount = new HashMap<>();
+        for (Card card:cardLog){
+            if (!cardCount.containsKey(card.getPlayerName())){
+                cardCount.put(card.getPlayerName(),1);
+            } else {
+                cardCount.put(card.getPlayerName(),cardCount.get(card.getPlayerName())+1);
+            }
+        }
+        return cardCount;
+    }
+
     public boolean checkRedCard(){
         return gameLog.get(gameLog.size()-2)=="Red";
     }
@@ -100,11 +123,11 @@ public class GameLog {
     }
 
     public void addYellowCard(){
-        cardLog.add(new Card((String) gameLog.get(gameLog.size()-1),55,"Yellow"));
+        cardLog.add(new Card((String) gameLog.get(gameLog.size()-1),gameLog.size(),"Yellow"));
     }
 
     public void addRedCard(){
-        cardLog.add(new Card((String) gameLog.get(gameLog.size()-1),55,"Red"));
+        cardLog.add(new Card((String) gameLog.get(gameLog.size()-1),gameLog.size(),"Red"));
     }
 
     public void cardIssued(){
