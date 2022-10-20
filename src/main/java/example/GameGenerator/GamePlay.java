@@ -1,6 +1,5 @@
 package example.GameGenerator;
 
-import example.Card;
 import example.RandomGenerator;
 import example.Team;
 
@@ -115,24 +114,15 @@ public class GamePlay {
 
         } else {
             String defenderEvent = gameEvent.defendInPlayEvent();
+
             if (Objects.equals(defenderEvent, "Foul")){
-                gameLog.logEvent(foulEventPicker());
+                String foulType = foulEventPicker();
+                gameLog.logEvent(foulType);
                 engine.attackTeamSwitch();
                 gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
-                //do something here
-                if (gameLog.checkYellowCard()){
-                    gameLog.addYellowCard();
-                    if (gameLog.checkIfAlreadyBooked()){
-                        System.out.println(gameLog.checkCardCount());
-                        gameLog.logEvent("OUT OF HERE");
-                        System.out.println("Out oF HeRe!!");
-                        gameLog.addRedCard();
-                        System.out.println(gameLog.checkCardCount());
-                    }
-                }
-                if (gameLog.checkRedCard()){
-                    gameLog.addRedCard();
-                }
+
+                generateCard(foulType);
+
                 engine.attackTeamSwitch();
                 playStart();
             } else {
@@ -143,16 +133,17 @@ public class GamePlay {
         }
     }
 
-    public void checkYellowCardedPlayers(String playerName){
-        for (Card card:gameLog.getCardLog()){
-            gameLog.logEvent(card.toString());
-            System.out.println(card.toString());
-            if (Objects.equals(card.getPlayerName(), playerName) && Objects.equals(card.getCardType(), "Yellow")){
-                System.out.println("Player has already been booked!");
-            }
-
+    private void generateCard(String foulType) {
+        if (Objects.equals(foulType, "Yellow")){
+            System.out.println(gameLog.checkCardCount());
+            System.out.println(gameLog.getLastPlayer() + " last player");
+            gameLog.checkIfAlreadyBooked();
+            gameLog.addYellowCard();
+        } else if (Objects.equals(foulType, "Red")) {
+            gameLog.addRedCard();
         }
     }
+
 
     public void attackingPlayerEventPicker(){
         int r = RandomGenerator.randomPlay();
@@ -178,9 +169,9 @@ public class GamePlay {
 
     public String foulEventPicker(){
         int r = RandomGenerator.randomNumber();
-        if (r < 50){
+        if (r <= 60){
             return "Foul";
-        } else if (r > 50 && r < 90) {
+        } else if (r > 61 && r < 95) {
             return "Yellow";
         } else {
             return "Red";

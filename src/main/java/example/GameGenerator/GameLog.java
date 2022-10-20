@@ -64,20 +64,27 @@ public class GameLog {
         return (String) gameLog.get(gameLog.size()-1);
     }
 
-    public boolean checkIfAlreadyBooked(){
+    public void checkIfAlreadyBooked(){
         String player = getLastPlayer();
-        return checkCardCount().get(player) == 2;
-//        return checkCardCount().containsKey(player);
+        System.out.println(checkCardCount().get(player) + " this is the card count");
+        if (checkCardCount().get(player)== null){
+            System.out.println("Player has been warned");
+        } else if (checkCardCount().get(player)== 1) {
+            System.out.println("Player has been sent off!");
+        }
     }
 
     public Map<String,Integer> checkCardCount(){
         Map<String,Integer> cardCount = new HashMap<>();
         for (Card card:cardLog){
-            if (!cardCount.containsKey(card.getPlayerName())){
-                cardCount.put(card.getPlayerName(),1);
-            } else {
-                cardCount.put(card.getPlayerName(),cardCount.get(card.getPlayerName())+1);
+            if(!Objects.equals(card.getCardType(), "Red")){
+                if (!cardCount.containsKey(card.getPlayerName())){
+                    cardCount.put(card.getPlayerName(),1);
+                } else {
+                    cardCount.put(card.getPlayerName(),cardCount.get(card.getPlayerName())+1);
+                }
             }
+
         }
         return cardCount;
     }
