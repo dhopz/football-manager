@@ -182,7 +182,23 @@ public class GamePlay {
         }
     }
 
-    public void redCardEvent(String playerSentOff){
+    public void redCardEvent(String playerSentOff) {
+        removePlayerFromHomeTeam(playerSentOff);
+        removePlayerFromAwayTeam(playerSentOff);
+    }
+
+    private void removePlayerFromAwayTeam(String playerSentOff) {
+        Player playerToRemove = null;
+        for(Player player:engine.getAwayPlayers()) {
+            if(player.playerDetails().equals(playerSentOff)) {
+                playerToRemove = player;
+                break;
+            }
+        }
+        engine.getAwayPlayers().remove(playerToRemove);
+    }
+
+    private void removePlayerFromHomeTeam(String playerSentOff) {
         Player playerToRemove = null;
         for(Player player:engine.getHomePlayers()) {
             if(player.playerDetails().equals(playerSentOff)) {
@@ -191,18 +207,7 @@ public class GamePlay {
             }
         }
         engine.getHomePlayers().remove(playerToRemove);
-
-        System.out.println(engine.getHomePlayers());
-
-        for(Player player: engine.getHomePlayers()){
-            System.out.println(player.playerDetails());
-        }
-
-        for (Player player: engine.getAwayPlayers()){
-            System.out.println(player.playerDetails());
-        }
-
-
     }
+
 
 }

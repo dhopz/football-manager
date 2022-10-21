@@ -25,3 +25,5 @@ O
 src/main/java/example/Card.java,0\6\06444c087dd8034ebf080c996a9d99477844cd97
 Z
 *src/main/java/example/RandomGenerator.java,9\8\98d8ad4c90e2aa6f9f6236bda3e4216be071dbc9
+Q
+!src/main/java/example/Player.java,e\a\ea9cad7127ce8f965f2cec0c41abcb8ba0aeb919
