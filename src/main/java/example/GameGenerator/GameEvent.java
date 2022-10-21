@@ -60,7 +60,7 @@ public class GameEvent {
 
     public String goalEventOpenPlay(){
         String[] goalPlay = new String[]{
-//                "Goal from Header",
+                "Goal from Header",
                 "Goal from Inside Box",
                 "Goal from Outside Box"
         };
@@ -92,9 +92,5 @@ public class GameEvent {
         return RandomGenerator.getRandomEvent(outOfBounds);
     }
 
-    public String foulEvent(){
-        String[] outOfBounds = new String[]{"Red","Yellow","Foul"};
-        return RandomGenerator.getRandomEvent(outOfBounds);
-    }
 
 }

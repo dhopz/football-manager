@@ -5,7 +5,8 @@ public class Goal {
 
     private final int goalNumber;
 
-    private final double timeScored;
+    private double timeScored;
+
 
     public Goal(String playerName, int timeScored) {
         this.playerName = playerName;
@@ -31,5 +32,9 @@ public class Goal {
 
     protected double getTimeScored() {
         return timeScored;
+    }
+
+    public void setTimeScored(double timeScored) {
+        this.timeScored = timeScored;
     }
 }

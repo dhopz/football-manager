@@ -13,16 +13,10 @@ O
 src/main/java/example/Team.java,f\2\f2d9752307165365fe32607a6bb07caaf77925fc
 Q
 !src/main/java/example/League.java,7\a\7a968474ddea2eb119c3377b6037e68f689840f9
-5
-Notes,7\0\70440046a3dc2e079f23ee1c57dfa76669b732aa
 N
 src/test/java/GameLogTest.java,6\a\6abc09bd87bbcf6288e40be0e8774e3ac086281f
 K
 src/test/java/CardTest.java,8\c\8c75dafb85c7dde7dcd0280c19de6dee9cfdd8f3
-O
-src/main/java/example/Goal.java,4\4\44683a42470084a47cb885fb316541b2d2a7f9d3
-O
-src/main/java/example/Card.java,0\6\06444c087dd8034ebf080c996a9d99477844cd97
 Z
 *src/main/java/example/RandomGenerator.java,9\8\98d8ad4c90e2aa6f9f6236bda3e4216be071dbc9
 Q

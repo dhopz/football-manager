@@ -88,6 +88,8 @@ public class GamePlay {
             gameLog.logEvent(keeperEvent);
 //            gameLog.logPlayEvent(engine.checkPlayer(gameLog.getPlayerLog()));
             engine.attackTeamSwitch();
+            gameLog.logEvent("Keeper pass");
+            playStart();
         } else {
             gameLog.logEvent(keeperEvent);
             if (Objects.equals(gameEvent.outOfBoundsEvent(), "Out")){
@@ -138,7 +140,6 @@ public class GamePlay {
         if (Objects.equals(foulType, "Yellow")){
             if (gameLog.checkIfAlreadyBooked()){
                 gameLog.addRedCard();
-                System.out.println(gameLog.getLastPlayer());
                 redCardEvent(gameLog.getLastPlayer());
             } else {
                 gameLog.addYellowCard();
