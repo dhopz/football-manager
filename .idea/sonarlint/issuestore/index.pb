@@ -9,12 +9,8 @@ N
 src/test/java/ResultsTest.java,5\2\527de37f6e34459396507df4c9fe6550f8f4cf81
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
-O
-src/main/java/example/Team.java,f\2\f2d9752307165365fe32607a6bb07caaf77925fc
 Q
 !src/main/java/example/League.java,7\a\7a968474ddea2eb119c3377b6037e68f689840f9
-N
-src/test/java/GameLogTest.java,6\a\6abc09bd87bbcf6288e40be0e8774e3ac086281f
 K
 src/test/java/CardTest.java,8\c\8c75dafb85c7dde7dcd0280c19de6dee9cfdd8f3
 Z
